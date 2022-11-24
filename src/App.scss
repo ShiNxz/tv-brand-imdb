@@ -4,22 +4,21 @@
 @tailwind utilities;
 
 html {
-  @apply scroll-smooth duration-200
+	@apply scroll-smooth duration-200;
 }
 
 body {
-  font-family: 'Rubik', sans-serif;
+	font-family: 'Rubik', sans-serif;
 }
 
 .dark {
-  @apply bg-gray-900 duration-200
+	@apply bg-gray-900 duration-200;
 }
 
 a {
-  @apply cursor-pointer
+	@apply cursor-pointer;
 }
 
 #app {
-  @apply bg-slate-200 dark:bg-gray-900 font-sans
-  
+	@apply bg-slate-200 dark:bg-gray-900 font-sans;
 }
