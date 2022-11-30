@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Card from '../Components/Card'
 import { useEffect, useState } from 'react'
 import useSWR from 'swr'
@@ -28,10 +27,6 @@ const Index = () => {
 		setLoading(false)
 	}
 
-	// const [page, setPage] = useState(1) // page counter
-
-	// const [itemsEveryPage] = useState(20) // how many items to show in each page
-
 	// fetch the top 250 movies from imdb
 	const { data: topMovies } = useSWR(
 		`${config.base_uri}/${config.default_lang}/API/Top250Movies/${config.public_key}`,
@@ -49,33 +44,6 @@ const Index = () => {
 			revalidateOnFocus: false,
 		}
 	)
-
-	// const FetchData = async () => {
-	// 	await axios({
-	// 		method: 'GET',
-	// 		url: search.query ? `${con.axios.baseURI}/search/shows?q=${search.query}` : `${con.axios.baseURI}/schedule`,
-	// 		headers: con.axios.headers,
-	// 	})
-	// 		.then((data) => {
-	// 			setAllShows(data.data)
-	// 			setPage(0)
-	// 		})
-	// 		.catch((e) => console.log(e))
-	// }
-
-	// useEffect(() => {
-	// 	FetchData()
-	// 	setPage(0)
-	// }, [search])
-
-	// useEffect(() => {
-	// 	FetchData()
-	// }, [])
-
-	// useEffect(() => {
-	// 	allShows && setShows(allShows.slice(page * itemsEveryPage, page * itemsEveryPage + itemsEveryPage))
-	// 	window.scrollTo(0, 0)
-	// }, [page, allShows])
 
 	return (
 		<>
@@ -122,23 +90,6 @@ const Index = () => {
 					title='Search Results'
 				/>
 			)}
-			{/* <div className='flex justify-center py-12'>
-				<ul className='flex list-style-none'>
-					{allShows &&
-						[...Array(Math.ceil(allShows.length / itemsEveryPage))].map((e, i) => (
-							<li key={i}>
-								<a
-									onClick={() => setPage(i)}
-									className={`relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 ${
-										page === i ? 'hover:bg-blue-600 bg-blue-600 text-white hover:text-white' : ''
-									} dark:text-white hover:text-white  hover:bg-blue-500`}
-								>
-									{i + 1}
-								</a>
-							</li>
-						))}
-				</ul>
-			</div> */}
 		</>
 	)
 }
